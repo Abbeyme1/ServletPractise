@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+
+	<!-- <icon>
+	
+		<small-icon>test.gif(jpg)</small-icon>
+	
+	</icon> -->
+
+	
+  <welcome-file-list>
+  	<!-- <welcome-file>servlets.ServletLifeCycle.java</welcome-file>
+  	<welcome-file>abc.html</welcome-file>
+  	<welcome-file>Add.jsp</welcome-file> -->
+  	<welcome-file>welcome.html</welcome-file>
+  	
+  </welcome-file-list> 
+  
+  <servlet>
+  
+  	<!-- <display-name>Add two numbers</display-name> -->
+  	<!-- <description>Add two numbers </description> -->
+  	
+  	
+ 	<servlet-name>Add</servlet-name>
+   	<servlet-class>servlets.AddServlet</servlet-class>
+   	
+   	
+
+   	<!-- SERVLET CONFIG -->
+   	<init-param>
+            <param-name>name</param-name>
+            <param-value>Abhay</param-value>
+    </init-param>
+    
+     <load-on-startup>0</load-on-startup> <!-- why only here ?? -->
+    
+    <security-role-ref>
+    	<role-name>abhay</role-name>
+    	<role-link>admin</role-link>
+    </security-role-ref>
+  
+  
+   
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	
+  	<servlet-name>Add</servlet-name>
+  	<url-pattern>/add</url-pattern>
+  	
+  </servlet-mapping> 
+  
+  <servlet>
+  
+  	<servlet-name>Add.jsp</servlet-name>
+  	<jsp-file>/Add.jsp</jsp-file>
+  	
+  	<load-on-startup>6</load-on-startup>
+  	
+  </servlet>
+  
+  <servlet-mapping>
+  
+  	<servlet-name>Add.jsp</servlet-name>
+  	<url-pattern>/addjsp</url-pattern>
+  	
+  </servlet-mapping>
+  
+  <security-role>
+  	<role-name>admin</role-name>
+  </security-role>
+  
+  
+  <!-- ERROR PAGE -->
+  <error-page>
+  	<exception-type>java.lang.ArrayIndexOutOfBoundsException</exception-type>
+  	<location>/Exception.html</location>
+  </error-page>
+  
+  
+  
+
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/Error.html</location>
+  </error-page>
+  
+  
+  <!--  -->
+  
+  <session-config>
+  	<session-timeout>60</session-timeout>
+  </session-config>
+  
+  
+  <!-- SERVLET CONTEXT / CONTEXT PARAM -->
+  <context-param>
+  	<param-name>name</param-name>
+  	<param-value>__Servlets__</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>admin</param-name>
+  	<param-value>admin@admin.com</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>Helpline</param-name>
+  	<param-value>+111111111</param-value>
+  </context-param>
+  
+  
+</web-app>
